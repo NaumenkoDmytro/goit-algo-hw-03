@@ -10,15 +10,15 @@
 '''
 from datetime import datetime, timedelta
 
-
 def date_counter(date:str):
     if type(date) != str:
-        print(f"{date} - is not a string, sorry but we can work only with strings in format'YYYY-MM-DD' ") 
+        print(f"{date} - is not a string, sorry but we can work only with strings in format'YYYY-MM-DD' ")
+        return 0 
     else:   
         user_date = datetime.strptime(date, "%Y-%m-%d")
         current_date = datetime.now()
         date_difference = user_date - current_date
         return date_difference.days
 
-print(date_counter(2020-10))
+print(date_counter('2020-10-09'))
 
