@@ -16,5 +16,4 @@ def normalize_phone(phone_number: str) ->str:
         correct_number = '+' + correct_number
     return correct_number
 
-#git pull test test
-#git fetch test test
+
