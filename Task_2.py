@@ -11,20 +11,17 @@
 
 import random
 
-def get_numbers_ticket(min, max, quantity):
-    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
-        print(f"Out of range")
-        return list()
-    else: 
-        ticket_list = set()
-        while len(ticket_list) < quantity:
-            ticket_list.add(random.randint(min, max))
+def get_numbers_ticket(min:int, max:int, quantity:int):
+    try:
+        if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+            print(f"Out of range")
+            return list()
+        else:
+            return sorted(random.sample(range(min, max+1), quantity))
+    except TypeError:
+        print("We can work only with int type, please change it")
+        return None
+    
 
-        print(f"The range of number starts from: {min} to {max}")
-        return ticket_list
-          
-        
-
-lottery_numbers = get_numbers_ticket(1, 100, 9)
+lottery_numbers = get_numbers_ticket(1, 49, 6)
 print("Ваші лотерейні числа:", lottery_numbers)
-print(len(lottery_numbers))
