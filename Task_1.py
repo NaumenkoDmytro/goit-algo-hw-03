@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 
 # Updated Option 
 
-def date_counter2(date:str):
+def get_days_from_today(date:str):
     current_date = datetime.now()
     try:
         user_date = datetime.strptime(date, "%Y-%m-%d")
@@ -26,7 +26,7 @@ def date_counter2(date:str):
         print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
         return None  
 
-print(date_counter2('2024-04-17'))
+print(get_days_from_today('2024-04-17'))
 
 # #1st option
 # def date_counter(date:str):
