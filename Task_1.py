@@ -9,33 +9,35 @@
 Для роботи з датами слід використовувати модуль datetime Python.
 '''
 from datetime import datetime, timedelta
-#1st option
-def date_counter(date:str):
-    if type(date) != str:
-        print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
-        return None 
-    else:   
+
+
+# Updated Option 
+
+def date_counter2(date:str):
+    current_date = datetime.now()
+    try:
         user_date = datetime.strptime(date, "%Y-%m-%d")
-        current_date = datetime.now()
         date_difference = current_date - user_date 
         return date_difference.days
+    except ValueError:
+        print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
+        return None
+    except TypeError:
+        print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
+        return None  
 
-print(date_counter('2020-10-09'))
+print(date_counter2('2024-04-17'))
 
-#2nd option 
-
-# def date_counter2(date:str):
-#     current_date = datetime.now()
-#     try:
+# #1st option
+# def date_counter(date:str):
+#     if type(date) != str:
+#         print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
+#         return None 
+#     else:   
 #         user_date = datetime.strptime(date, "%Y-%m-%d")
+#         current_date = datetime.now()
 #         date_difference = current_date - user_date 
 #         return date_difference.days
-#     except ValueError:
-#         print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
-#         return None
-#     except TypeError:
-#         print(f"{date} - is not a string, sorry but we can work only with string in format'YYYY-MM-DD' ")
-#         return None  
 
-# print(date_counter2('2025-10-09'))
+# print(date_counter('2020-10-09'))
 
